@@ -17,7 +17,7 @@ if [ -z "$GITHUB_TOKEN" ]; then
   githubUrl=git@github.com:xugaoyi/vuepress-theme-vdoing.git
 else
   msg='来自github actions的自动部署'
-  githubUrl=https://yll-frontend:${GITHUB_TOKEN}@github.com/yll-frontend/yll-python.github.io.git 
+  githubUrl=https://yll-frontend:${GITHUB_TOKEN}@github.com/yll-frontend/yll-frontend.github.io.git 
   git config --global user.name "yll-frontend"
   git config --global user.email "1739958315@qq.com"
 fi
