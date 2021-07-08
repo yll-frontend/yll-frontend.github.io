@@ -84,8 +84,8 @@ module.exports = [
       choosen: 'gitalk',
       options: {
         clientID: 'c0d50191430ebc97e4d2',
-        clientSecret: '18528a7346eba9d3d54f598de3a84963628ac924',
-        repo: 'BlogComment', // GitHub 仓库
+        clientSecret: '757b7db6f5e1d9d08fb5d4ee39bea4acdb095c64',
+        repo: 'BlogRemark', // GitHub 仓库
         owner: 'yll-frontend', // GitHub仓库所有者
         admin: ['yll-frontend'], // 对仓库有写权限的人
         // distractionFreeMode: true,
@@ -98,6 +98,7 @@ module.exports = [
       },
     },
   ],
+
   [
     '@vuepress/last-updated', // "上次更新"时间格式
     {
