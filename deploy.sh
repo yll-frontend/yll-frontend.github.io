@@ -10,11 +10,11 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github pages
-# echo 'b.xugaoyi.com' > CNAME
+echo 'www.goodstart.work' > CNAME
 
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
-  githubUrl=git@github.com:xugaoyi/vuepress-theme-vdoing.git
+  # githubUrl=git@github.com:xugaoyi/vuepress-theme-vdoing.git
 else
   msg='来自github actions的自动部署'
   githubUrl=https://yll-frontend:${GITHUB_TOKEN}@github.com/yll-frontend/yll-frontend.github.io.git 
