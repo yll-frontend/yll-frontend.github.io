@@ -11,6 +11,8 @@ cd docs/.vuepress/dist
 
 # deploy to github pages
 echo 'www.goodstart.work' > CNAME
+echo 'b4cb45c2c0ebe49ff4c2744eb70edfdb' > baidu_verify_code-tdHAInyQY1.html
+
 
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
