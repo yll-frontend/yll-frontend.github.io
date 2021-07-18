@@ -5,7 +5,7 @@ const htmlModules = require('./htmlModules.js');
 module.exports = {
   nav,
   sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
-  logo: 'https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/1/EB-logo.png', // 导航栏logo
+  logo: 'https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/img/EB-logo.png', // 导航栏logo
   repo: 'yll-frontend/', // 导航栏右侧生成Github链接
   searchMaxSuggestions: 10, // 搜索结果显示最大数
   lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
@@ -13,7 +13,7 @@ module.exports = {
   editLinks: true, // 启用编辑
   editLinkText: '编辑',
   sidebar: 'structuring', // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
-  bodyBgImg: "https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/bg.jpeg", // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
+  bodyBgImg: "https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/img/bg.jpeg", // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
 
   author: {
     // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
@@ -22,7 +22,7 @@ module.exports = {
   },
   blogger: {
     // 博主信息，显示在首页侧边栏
-    avatar: 'https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/1/EB-logo.png',
+    avatar: 'https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/img/EB-logo.png',
     name: 'Yang ll',
     slogan: '前端界的小学生',
   },
