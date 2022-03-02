@@ -8,10 +8,10 @@ module.exports = [
       {
         text: '前端文章',
         items: [
-          { text: 'JavaScript', link: '/base/JavaScript/' },
-          { text: 'Html', link: '/base/Html/' },
-          { text: 'Css', link: '/base/Css/' },
-          { text: 'Vue', link: '/frame/vue/' },
+          { text: 'JavaScript', link: '/base/#JavaScript' },
+          { text: 'Html', link: 'base/#Html5' },
+          { text: 'Css', link: '/base/#Css' },
+          { text: 'Vue', link: '/frame/#Vue' },
         ],
       },
     ],
