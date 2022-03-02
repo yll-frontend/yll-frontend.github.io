@@ -11,7 +11,7 @@ features: # 可选的
   - title: 基础
     details: JavaScript、Css、Html5
     link: /base/ # 可选
-    imgUrl: https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/img/other.png # 可选
+    imgUrl: https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/img/web.png # 可选
   - title: 框架
     details: Vue、Koa2、Express......
     link: /frame/
