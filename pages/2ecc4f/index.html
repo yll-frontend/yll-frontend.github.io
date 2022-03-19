@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>包含min函数的栈 | Yang ll&#39;s Blog </title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-7828333725993554" async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="description" content="总要去做一些有意义的事情">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-tdHAInyQY1">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.521fced9.css" as="style"><link rel="preload" href="/assets/js/app.41b7f5fe.js" as="script"><link rel="preload" href="/assets/js/2.f5b07348.js" as="script"><link rel="preload" href="/assets/js/46.c1ce8ad0.js" as="script"><link rel="prefetch" href="/assets/js/10.ba9ce926.js"><link rel="prefetch" href="/assets/js/11.56bdcc94.js"><link rel="prefetch" href="/assets/js/12.09f6ab9f.js"><link rel="prefetch" href="/assets/js/13.6a25762f.js"><link rel="prefetch" href="/assets/js/14.6ee92fd4.js"><link rel="prefetch" href="/assets/js/15.e8bc42cb.js"><link rel="prefetch" href="/assets/js/16.d1f2341b.js"><link rel="prefetch" href="/assets/js/17.203f330b.js"><link rel="prefetch" href="/assets/js/18.8ac2ace0.js"><link rel="prefetch" href="/assets/js/19.abfa72e5.js"><link rel="prefetch" href="/assets/js/20.a05f9691.js"><link rel="prefetch" href="/assets/js/21.335091d7.js"><link rel="prefetch" href="/assets/js/22.706aa065.js"><link rel="prefetch" href="/assets/js/23.d9ff8bf5.js"><link rel="prefetch" href="/assets/js/24.4e95d8f6.js"><link rel="prefetch" href="/assets/js/25.6a61428c.js"><link rel="prefetch" href="/assets/js/26.662844c9.js"><link rel="prefetch" href="/assets/js/27.298c0272.js"><link rel="prefetch" href="/assets/js/28.b4d15abd.js"><link rel="prefetch" href="/assets/js/29.ad3067b8.js"><link rel="prefetch" href="/assets/js/3.804f0b2d.js"><link rel="prefetch" href="/assets/js/30.1c5c7521.js"><link rel="prefetch" href="/assets/js/31.3836db44.js"><link rel="prefetch" href="/assets/js/32.a881ff58.js"><link rel="prefetch" href="/assets/js/33.cf336bda.js"><link rel="prefetch" href="/assets/js/34.ebebff8a.js"><link rel="prefetch" href="/assets/js/35.f1041854.js"><link rel="prefetch" href="/assets/js/36.8a3ecf47.js"><link rel="prefetch" href="/assets/js/37.c7fed2bf.js"><link rel="prefetch" href="/assets/js/38.34ea23ee.js"><link rel="prefetch" href="/assets/js/39.cefeadc9.js"><link rel="prefetch" href="/assets/js/4.fd716dd1.js"><link rel="prefetch" href="/assets/js/40.5605b0a5.js"><link rel="prefetch" href="/assets/js/41.0aed7751.js"><link rel="prefetch" href="/assets/js/42.25cc43e9.js"><link rel="prefetch" href="/assets/js/43.7245c056.js"><link rel="prefetch" href="/assets/js/44.f0543013.js"><link rel="prefetch" href="/assets/js/45.d71f7d30.js"><link rel="prefetch" href="/assets/js/47.792b8cd5.js"><link rel="prefetch" href="/assets/js/48.21a8f81e.js"><link rel="prefetch" href="/assets/js/49.1c4de304.js"><link rel="prefetch" href="/assets/js/5.1829b337.js"><link rel="prefetch" href="/assets/js/50.43c9679e.js"><link rel="prefetch" href="/assets/js/51.809b14af.js"><link rel="prefetch" href="/assets/js/52.61219eae.js"><link rel="prefetch" href="/assets/js/53.5a3278ba.js"><link rel="prefetch" href="/assets/js/54.b4869c2a.js"><link rel="prefetch" href="/assets/js/55.4599df48.js"><link rel="prefetch" href="/assets/js/56.15c95057.js"><link rel="prefetch" href="/assets/js/57.ff9ea8e4.js"><link rel="prefetch" href="/assets/js/58.c0e2dfcd.js"><link rel="prefetch" href="/assets/js/59.9bd74486.js"><link rel="prefetch" href="/assets/js/6.99371118.js"><link rel="prefetch" href="/assets/js/60.fca2f400.js"><link rel="prefetch" href="/assets/js/61.44b497a5.js"><link rel="prefetch" href="/assets/js/62.61ca707a.js"><link rel="prefetch" href="/assets/js/63.3a9490c5.js"><link rel="prefetch" href="/assets/js/64.91d7a24b.js"><link rel="prefetch" href="/assets/js/65.0e3da977.js"><link rel="prefetch" href="/assets/js/66.9008c12e.js"><link rel="prefetch" href="/assets/js/67.6a5e5ca8.js"><link rel="prefetch" href="/assets/js/7.1579e437.js"><link rel="prefetch" href="/assets/js/8.bd3efab9.js"><link rel="prefetch" href="/assets/js/9.c5058092.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.521fced9.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-body-img"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/img/EB-logo.png" alt="Yang ll's Blog " class="logo"> <span class="site-name can-hide">Yang ll's Blog </span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/base/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/base/#JavaScript" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/2ecc4f/base/#Html5" class="nav-link">Html</a></li><li class="dropdown-subitem"><a href="/base/#Css" class="nav-link">Css</a></li><li class="dropdown-subitem"><a href="/frame/#Vue" class="nav-link">Vue</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="书籍" class="dropdown-title"><a href="/book/" class="link-title">书籍</a> <span class="title" style="display:none;">书籍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/d2f8aa/" class="nav-link">《JavaScript高级程序设计》</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">技术</a></div> <a href="https://github.com/yll-frontend/yll-frontend.github.io/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://sls-cloudfunction-ap-shanghai-code-1305386406.cos.ap-shanghai.myqcloud.com/img/EB-logo.png"> <div class="blogger-info"><h3>Yang ll</h3> <span>前端界的小学生</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/base/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>前端文章</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/base/#JavaScript" class="nav-link">JavaScript</a></li><li class="dropdown-subitem"><a href="/pages/2ecc4f/base/#Html5" class="nav-link">Html</a></li><li class="dropdown-subitem"><a href="/base/#Css" class="nav-link">Css</a></li><li class="dropdown-subitem"><a href="/frame/#Vue" class="nav-link">Vue</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="书籍" class="dropdown-title"><a href="/book/" class="link-title">书籍</a> <span class="title" style="display:none;">书籍</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>学习笔记</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/d2f8aa/" class="nav-link">《JavaScript高级程序设计》</a></li></ul></li></ul></div></div><div class="nav-item"><a href="/more/" class="nav-link">技术</a></div> <a href="https://github.com/yll-frontend/yll-frontend.github.io/" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/pages/d647f8/" class="sidebar-link">前端鉴权</a></li><li><a href="/pages/7887cf/" class="sidebar-link">WebWorker</a></li><li><a href="/pages/79068b/" class="sidebar-link">spa路由原理</a></li><li><a href="/pages/b6e2b8/" class="sidebar-link">浏览器机制</a></li><li><a href="/pages/fe16e9/" class="sidebar-link">字体显示</a></li><li><a href="/pages/8fbcfa/" class="sidebar-link">部分兼容性问题总结</a></li><li><a href="/pages/ec3cf0/" class="sidebar-link">隐式转换</a></li><li><a href="/pages/d02d6e/" class="sidebar-link">Charles抓包配置</a></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-0c557b5e><div class="articleInfo" data-v-0c557b5e><ul class="breadcrumbs" data-v-0c557b5e><li data-v-0c557b5e><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-0c557b5e></a></li> <li data-v-0c557b5e><a href="/more/#更多" data-v-0c557b5e>更多</a></li><li data-v-0c557b5e><a href="/more/#算法集合" data-v-0c557b5e>算法集合</a></li></ul> <div class="info" data-v-0c557b5e><div title="作者" class="author iconfont icon-touxiang" data-v-0c557b5e><a href="https://github.com/yll-frontend/" target="_blank" title="作者" class="beLink" data-v-0c557b5e>yangll</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-0c557b5e><a href="javascript:;" data-v-0c557b5e>2022-02-15</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><!----> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">包含min函数的栈<!----></h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p> <p>示例:</p> <p>MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.min();   --&gt; 返回 -3.
+minStack.pop();
+minStack.top();      --&gt; 返回 0.
+minStack.min();   --&gt; 返回 -2.</p> <p>提示：</p> <p>各函数的调用总次数不超过 20000 次</p> <p>思考：此题并非常规题，因为栈中的元素不一定都是Number类型，有可能为null，undefined等，所以在取最小值时，不可以采用Math.min(),可以利用JSON.parse(JSON.stringify(stack))删除栈中的特殊元素，然后利用sort方法进行排序即可</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">/**
+ * initialize your data structure here.
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">MinStack</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>stack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/** 
+ * @param {number} x
+ * @return {void}
+ */</span>
+<span class="token class-name">MinStack</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">push</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @return {void}
+ */</span>
+<span class="token class-name">MinStack</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">pop</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @return {number}
+ */</span>
+<span class="token class-name">MinStack</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">top</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>stack<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>stack<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @return {number}
+ */</span>
+<span class="token class-name">MinStack</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">min</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> array <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>stack<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    array <span class="token operator">=</span>  array<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span>b</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(x)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.min()
+ */</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br></div></div></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/yll-frontend/yll-frontend.github.io/edit/master/docs/04.更多/算法集合/02.包含min函数的栈.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2022/02/16, 06:47:03</span></div></div> <div class="page-nav-wapper"><!----> <!----></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/5d013d/"><div>
+            三数之和
+            <!----></div></a> <span class="date">03-01</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/c686bd/"><div>
+            两数字和
+            <!----></div></a> <span class="date">03-01</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/c119f6/"><div>
+            合并两个有序数组
+            <!----></div></a> <span class="date">03-01</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:1739958315@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/yll-frontend" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2021-2022
+    <span></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <div class="body-bg" style="background:url() center center / cover no-repeat;opacity:0.5;"></div> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><span class="close-but">×</span> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.41b7f5fe.js" defer></script><script src="/assets/js/2.f5b07348.js" defer></script><script src="/assets/js/46.c1ce8ad0.js" defer></script>
+  </body>
+</html>
